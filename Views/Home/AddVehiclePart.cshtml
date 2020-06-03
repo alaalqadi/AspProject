@@ -1,0 +1,52 @@
+﻿@model Project.Areas.Identity.Data.VehiclePart
+
+@{
+    ViewData["Title"] = "AddVehiclePart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="color: #ff7900;">Add Vehicle Part</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div  style="color: #ffffff;">
+            <form asp-action="AddVehiclePart">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="PartName" class="control-label"></label>
+                    <input asp-for="PartName" class="form-control" />
+                    <span asp-validation-for="PartName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Condition" class="control-label"></label>
+                    <input asp-for="Condition" class="form-control" />
+                    <span asp-validation-for="Condition" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Manufacturer" class="control-label"></label>
+                    <input asp-for="Manufacturer" class="form-control" />
+                    <span asp-validation-for="Manufacturer" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CreationYear" class="control-label"></label>
+                    <input asp-for="CreationYear" class="form-control" />
+                    <span asp-validation-for="CreationYear" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-outline-warning" />
+                    <a class="btn btn-dark ml-5" asp-action="Index">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,61 @@
+﻿@model Project.Areas.Identity.Data.ViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .actionlink a {
+        color: #fff;
+        text-decoration: none !important;
+    }
+
+</style>
+<button class="btn btn-outline-warning actionlink float-right">
+    @Html.ActionLink("Add new vehicle", "AddVehicle")
+</button>
+<br clear="all" />
+<hr style="border:1px solid #ff7900!important;" />
+<h2 style="color: #ff7900;">Owned Vehicles:</h2>
+<br clear="all" />
+<div class="row">
+    @foreach (var vehicle in Model.Vehicles)
+    {
+        <div class="col-4">
+            <div class="card">
+                <img class="card-img-top" src="https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Card image">
+                <div class="card-body">
+                    <h4 class="card-title">@vehicle.Manufacturer</h4>
+                    <p class="card-text">@vehicle.CreationYear</p>
+                    <p class="card-text">@vehicle.Milage KM</p>
+                    <p class="card-text">@vehicle.LastMaintainanceDate</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<br />
+<button class="btn btn-outline-warning actionlink float-right">
+    @Html.ActionLink("Add new part", "AddVehiclePart")
+</button>
+<br clear="all" />
+<hr style="border:1px solid #ff7900!important;" />
+<h2 style="color: #ff7900;">Browse for parts:</h2>
+<hr />
+<div class="row">
+    @foreach (var vehiclePart in Model.VehicleParts)
+    {
+        <div class="col-4">
+            <div class="card">
+                <img class="card-img-top" src="https://media.gettyimages.com/photos/profile-and-side-profile-view-of-a-car-wheel-on-white-picture-id95757579?s=612x612" alt="Card image">
+                <div class="card-body">
+                    <h4 class="card-title">@vehiclePart.PartName</h4>
+                    <p class="card-text">@vehiclePart.Condition</p>
+                    <p class="card-text">@vehiclePart.Manufacturer</p>
+                    <p class="card-text">@vehiclePart.Price $</p>
+                    <p class="card-text">@vehiclePart.CreationYear</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
